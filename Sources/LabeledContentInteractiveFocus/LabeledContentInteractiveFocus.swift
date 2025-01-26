@@ -13,9 +13,9 @@ import SwiftUI
 /// labeled content, use the ``SwiftUI/View/labeledContentStyle(_:)`` modifier.
 ///
 /// You can also use ``SwiftUI/LabeledContentStyle/interactiveFocus`` to construct this style.
-struct InteractiveFocusLabeledContentStyle: LabeledContentStyle {
+public struct InteractiveFocusLabeledContentStyle: LabeledContentStyle {
     @FocusState private var isFocused: Bool
-    func makeBody(configuration: Configuration) -> some View {
+    public func makeBody(configuration: Configuration) -> some View {
         LabeledContent {
             configuration.content
                 .focused($isFocused)
@@ -28,7 +28,7 @@ struct InteractiveFocusLabeledContentStyle: LabeledContentStyle {
     }
 }
 
-extension LabeledContentStyle where Self == InteractiveFocusLabeledContentStyle {
+public extension LabeledContentStyle where Self == InteractiveFocusLabeledContentStyle {
     /// A `LabeledContentStyle` that moves focus to the content of `LabeledContent` when its label has been tapped.
     ///
     /// To apply this style to labeled content, or to a view that contains
@@ -36,7 +36,7 @@ extension LabeledContentStyle where Self == InteractiveFocusLabeledContentStyle 
     static var interactiveFocus: InteractiveFocusLabeledContentStyle { .init() }
 }
 
-extension View {
+public extension View {
     /// Moves focus to the content of `LabeledContent` when its label has been tapped.
     ///
     /// When labeled content contains a text field tapping the label will move focus inside the text field.
